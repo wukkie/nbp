@@ -20,11 +20,5 @@ public class ArrayOfExchangeRatesTable
     public void setExchangeRatesTable (NBPExchangeRatesTable ExchangeRatesTable){
         this.exchangeRatesTable = ExchangeRatesTable;
     }
-
-    @Override
-    public String toString()
-    {
-        return "ClassPojo [ExchangeRatesTable = "+exchangeRatesTable+"]";
-    }
 }
 			

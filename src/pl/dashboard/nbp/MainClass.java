@@ -1,19 +1,10 @@
 package pl.dashboard.nbp;
 
 import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Optional;
-
-import com.google.gson.Gson;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 public class MainClass {
-
-	static final INBPApplication application = new NBPApplicationImpl();
 	
 	private static final CurrencyRates getCurrency(final String code, NBPExchangeRatesTable response) {
 		return response.getRates().stream()
@@ -23,7 +14,7 @@ public class MainClass {
 	}
 
 	private static void printOutput(NBPExchangeRatesTable currencyTable) {
-        System.out.println(String.format("Data: %t", currencyTable.getEffectiveDate()));
+        System.out.println(String.format("Data: %s ", new SimpleDateFormat("yyyy-MM-dd").format(currencyTable.getEffectiveDate())));
         System.out.println("Waluta = kupno; sprzedaż");
         System.out.println(getCurrency("EUR", currencyTable));
         System.out.println(getCurrency("CHF", currencyTable));
@@ -32,14 +23,19 @@ public class MainClass {
 	}	
 
 	public static void main(String[] args) throws Exception {
+		INBPApplication application = new NBPApplicationImpl(new NBPApplicationConfig(), new NBPRequestParser(), new NBPURLParser());
 		try {
-			NBPRequest request = NBPRequestParser.parseArgs(args);
-	        printOutput(application.getFromXML(request));
+	        printOutput(application.get(args));
 		} catch(IllegalArgumentException iae) {
 			System.out.println(iae.getMessage());
 		} catch(FileNotFoundException fnf) {
 			System.out.println(String.format("Dla podanego argumentu %s nie znaleziono danych", args[0]));			
-		} 
+		} catch(IOException io) {
+			System.out.println(io.getMessage());		
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
 
 	}
 }

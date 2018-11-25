@@ -37,6 +37,11 @@ public class NBPRequest {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	@Override
+	public String toString() {
+		return "NBPRequest [date=" + date + ", endDate=" + endDate + ", table=" + table + ", format=" + format
+				+ ", type=" + type + "]";
 	} 
 	
 	
