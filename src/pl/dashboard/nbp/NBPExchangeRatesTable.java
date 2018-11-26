@@ -10,58 +10,65 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlRootElement(name="ExchangeRatesTable")
+@XmlRootElement(name = "ExchangeRatesTable")
 public class NBPExchangeRatesTable {
 
-	private String Table; 
-	private String no; 
+	private String Table;
+	private String no;
 	private Date tradingDate;
 	private Date effectiveDate;
 	private List<CurrencyRates> rates;
-	
+
 	public String getTable() {
 		return Table;
 	}
-	
-	@XmlElement(name="Table")
+
+	@XmlElement(name = "Table")
 	public void setTable(String table) {
 		this.Table = table;
 	}
+
 	public String getNo() {
 		return no;
 	}
-	@XmlElement(name="No")
+
+	@XmlElement(name = "No")
 	public void setNo(String no) {
 		this.no = no;
 	}
+
 	public Date getTradingDate() {
 		return tradingDate;
 	}
-	@XmlElement(name="TradingDate")
+
+	@XmlElement(name = "TradingDate")
 	public void setTradingDate(Date tradingDate) {
 		this.tradingDate = tradingDate;
 	}
+
 	public Date getEffectiveDate() {
 		return effectiveDate;
 	}
-	@XmlElement(name="EffectiveDate")
+
+	@XmlElement(name = "EffectiveDate")
 	public void setEffectiveDate(Date effectiveDate) {
 		this.effectiveDate = effectiveDate;
 	}
+
 	public List<CurrencyRates> getRates() {
 		return rates;
 	}
-	
-	@XmlElementWrapper(name="Rates")
-	@XmlElement(name="Rate")
+
+	@XmlElementWrapper(name = "Rates")
+	@XmlElement(name = "Rate")
 	public void setRates(List<CurrencyRates> rates) {
 		this.rates = rates;
 	}
+
 	@Override
 	public String toString() {
 		return "ExchangeRatesTable [table=" + Table + ", no=" + no + ", tradingDate=" + tradingDate + ", effectiveDate="
 				+ effectiveDate + ", rates=" + rates + "]";
 	}
 
-	
 }

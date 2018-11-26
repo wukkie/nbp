@@ -17,30 +17,30 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
 
-public class NBPApplicationImpl implements INBPApplication{
-	
-	private NBPApplicationConfig config; 
+public class NBPApplicationImpl implements INBPApplication {
+
+	private NBPApplicationConfig config;
 	private NBPRequestParser requestParser;
 	private NBPURLParser urlParser;
 	private HashMap<String, INBPTableReader> readers = new configReaders();
-	
-	private class configReaders extends HashMap<String, INBPTableReader>{
-		configReaders(){
+
+	private class configReaders extends HashMap<String, INBPTableReader> {
+		configReaders() {
 			super.put("xml", new NBPExchangeTableReaderXML());
 		}
 	}
-	
+
 	@Override
-	public NBPExchangeRatesTable get(NBPRequest request) throws Exception{
-		if(!readers.containsKey(request.getFormat())) {
+	public NBPExchangeRatesTable get(NBPRequest request) throws Exception {
+		if (!readers.containsKey(request.getFormat())) {
 			throw new IllegalArgumentException(String.format("Format %s nie jest obsługiwiany", request.getFormat()));
 		}
-		return readers.get(request.getFormat()).get(urlParser.getURI(config, request)); 
+		return readers.get(request.getFormat()).get(urlParser.getURI(config, request));
 	}
-	
+
 	@Override
 	public NBPExchangeRatesTable get(String[] args) throws IllegalArgumentException, Exception {
-		return get(requestParser.parseArgs(args)); 
+		return get(requestParser.parseArgs(args));
 	}
 
 	public NBPApplicationImpl(NBPApplicationConfig config, NBPRequestParser requestParser, NBPURLParser urlparser) {
@@ -48,7 +48,5 @@ public class NBPApplicationImpl implements INBPApplication{
 		this.requestParser = requestParser;
 		this.urlParser = urlparser;
 	}
-	
-
 
 }

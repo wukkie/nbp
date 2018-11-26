@@ -7,18 +7,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
-public class ArrayOfExchangeRatesTable
-{
+public class ArrayOfExchangeRatesTable {
 
-    private NBPExchangeRatesTable exchangeRatesTable;
+	private NBPExchangeRatesTable exchangeRatesTable;
 
-    public NBPExchangeRatesTable getExchangeRatesTable (){
-        return exchangeRatesTable;
-    }
-    
-	@XmlElement(name="ExchangeRatesTable")
-    public void setExchangeRatesTable (NBPExchangeRatesTable ExchangeRatesTable){
-        this.exchangeRatesTable = ExchangeRatesTable;
-    }
+	public NBPExchangeRatesTable getExchangeRatesTable() {
+		return exchangeRatesTable;
+	}
+
+	@XmlElement(name = "ExchangeRatesTable")
+	public void setExchangeRatesTable(NBPExchangeRatesTable ExchangeRatesTable) {
+		this.exchangeRatesTable = ExchangeRatesTable;
+	}
 }
-			

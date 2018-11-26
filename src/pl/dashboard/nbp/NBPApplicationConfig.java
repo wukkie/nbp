@@ -6,7 +6,7 @@ public class NBPApplicationConfig {
 	public static class tableTypes {
 		public static final String TABLE_TYPE_A = "A";
 		public static final String TABLE_TYPE_B = "B";
-		public static final String TABLE_TYPE_C = "C";		
+		public static final String TABLE_TYPE_C = "C";
 	}
 
 	public static class format {
@@ -20,5 +20,5 @@ public class NBPApplicationConfig {
 
 	/* NBP API Request Parameters */
 	public static final String ARG_DATE_FORMAT = "yyyy-MM-dd";
-	public final static String  NBPURL = "http://api.nbp.pl/api/";	
+	public final static String NBPURL = "http://api.nbp.pl/api/";
 }

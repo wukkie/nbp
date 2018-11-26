@@ -5,7 +5,7 @@ import java.net.URL;
 import javax.xml.bind.JAXB;
 import javax.xml.bind.UnmarshalException;
 
-public class NBPExchangeTableReaderXML implements INBPTableReader{
+public class NBPExchangeTableReaderXML implements INBPTableReader {
 
 	@Override
 	public NBPExchangeRatesTable get(URL url) {

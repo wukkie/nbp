@@ -6,7 +6,6 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 @XmlRootElement
 public class CurrencyRates {
 
@@ -14,12 +13,12 @@ public class CurrencyRates {
 	private String code;
 	private BigDecimal bid;
 	private BigDecimal ask;
-	
+
 	public String getCurrency() {
 		return currency;
 	}
-	
-	@XmlElement(name="Currency")
+
+	@XmlElement(name = "Currency")
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
@@ -27,8 +26,8 @@ public class CurrencyRates {
 	public String getCode() {
 		return code;
 	}
-	
-	@XmlElement(name="Code")
+
+	@XmlElement(name = "Code")
 	public void setCode(String code) {
 		this.code = code;
 	}
@@ -36,8 +35,8 @@ public class CurrencyRates {
 	public BigDecimal getBid() {
 		return bid;
 	}
-	
-	@XmlElement(name="Bid")
+
+	@XmlElement(name = "Bid")
 	public void setBid(BigDecimal bid) {
 		this.bid = bid;
 	}
@@ -45,13 +44,13 @@ public class CurrencyRates {
 	public BigDecimal getAsk() {
 		return ask;
 	}
-	
-	@XmlElement(name="Ask")
+
+	@XmlElement(name = "Ask")
 	public void setAsk(BigDecimal ask) {
 		this.ask = ask;
 	}
-	
-	public String toString(){
-		return String.format("%s = %s; %s", code, bid, ask);	
-	}	
+
+	public String toString() {
+		return String.format("%s = %s; %s", code, bid, ask);
+	}
 }

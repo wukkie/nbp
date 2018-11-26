@@ -6,11 +6,11 @@ import java.text.SimpleDateFormat;
 
 public class NBPURLParser {
 	public static URL getURI(NBPApplicationConfig config, NBPRequest request) throws MalformedURLException {
-		String url = config.NBPURL; 
+		String url = config.NBPURL;
 		url = url + request.getType() + "/";
 		url = url + request.getTable() + "/";
 		url = url + new SimpleDateFormat(config.ARG_DATE_FORMAT).format(request.getDate()) + "/";
 		url = url + "?format=" + request.getFormat();
-		return new URL(url);		
+		return new URL(url);
 	}
 }
